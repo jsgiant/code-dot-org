@@ -960,6 +960,21 @@ var projects = (module.exports = {
       });
     });
   },
+
+  isSameAs(sampleSources) { debugger;
+    // this probably belongs in studioapp.js
+    // sample levels:
+    // http://localhost-studio.code.org:3000/s/csd3-2019/stage/6/puzzle/9?section_id=30
+    // http://localhost-studio.code.org:3000/s/csd3-2019/stage/6/puzzle/4?section_id=30
+    // http://localhost-studio.code.org:3000/s/dance/stage/1/puzzle/2
+    // http://localhost-studio.code.org:3000/s/csp5-2020/stage/3/puzzle/3
+    // http://localhost-studio.code.org:3000/s/csd3-2019/stage/4/puzzle/2?section_id=30
+    sampleSources.animations = sampleSources.animations ? JSON.parse(sampleSources.animations) : {};
+    sampleSources.generatedProperties = {};
+    if (Array.isArray(currentSources.animations.orderedKeys))
+    return JSON.stringify(currentSources) === JSON.stringify(sampleSources);
+  },
+
   /**
    * Saves the project to the Channels API.
    * @param {boolean} forceNewVersion If true, explicitly create a new version.

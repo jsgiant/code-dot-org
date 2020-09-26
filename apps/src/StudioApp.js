@@ -1877,6 +1877,8 @@ StudioApp.prototype.silentlyReport = function() {
  * Click the reset button. Reset the application.
  */
 StudioApp.prototype.resetButtonClick = function() {
+  debugger;
+  this.sourcesUnchanged();
   // First, abort any reports in progress - the server call will
   // still complete, but we'll skip the success callback.
   this.onResetPressed();
@@ -2722,6 +2724,19 @@ StudioApp.prototype.enableBreakpoints = function() {
     }.bind(this)
   );
 };
+
+StudioApp.prototype.sourcesUnchanged = function() {
+  const level = this.config.level;
+  const originalLevelSources = {
+    source: level.startBlocks,
+    html: level.startHtml,
+    animations: level.startAnimations,
+    makerAPIsEnabled: level.makerlabEnabled,
+    selectedSong: level.defaultSong,
+    libraries: level.startLibraries
+  };
+  return project.isSameAs(originalLevelSources);
+}
 
 /**
  * Set whether to alert user to empty blocks, short-circuiting all other tests.
