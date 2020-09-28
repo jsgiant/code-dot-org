@@ -1,7 +1,7 @@
 !!! 5
 %html{dir: locale_dir}
   %head
-    - appname = Rails.env.production? ? t(:appname) : "#{t(:appname)} [#{Rails.env}]"
+    - appname = Rails.env.production? ? t(:appname) : 'iBHubs'
     - title = @page_title ? "#{appname} - #{@page_title}" : appname
     %title= title
     = ::NewRelic::Agent.browser_timing_header rescue ''

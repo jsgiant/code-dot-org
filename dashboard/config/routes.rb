@@ -164,6 +164,9 @@ Dashboard::Application.routes.draw do
   get 'discourse/sso' => 'discourse_sso#sso'
   post '/auth/lti', to: 'lti_provider#sso'
 
+  get "/ibhubs", to: 'ibhubs#ib'
+  get "/ibhubs/:access_token", to: 'ibhubs#signin'
+
   root to: "home#index"
   get '/home_insert', to: 'home#home_insert'
   get '/health_check', to: 'home#health_check'
@@ -306,6 +309,7 @@ Dashboard::Application.routes.draw do
     get 'pull-review', to: 'peer_reviews#pull_review', as: 'pull_review'
   end
 
+  # get '/courses', to: redirect('/projects/public')
   resources :courses, param: 'course_name'
   get '/course/:course_name', to: redirect('/courses/%{course_name}')
 
