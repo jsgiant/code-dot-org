@@ -180,9 +180,9 @@ var drawDiv = function() {
     div.style.height = Applab.footerlessAppHeight + 'px';
   });
 
-  if (shouldRenderFooter()) {
-    renderFooterInSharedGame();
-  }
+  // if (shouldRenderFooter()) {
+  //   renderFooterInSharedGame();
+  // }
 };
 
 function shouldRenderFooter() {

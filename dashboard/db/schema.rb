@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200916194417) do
+ActiveRecord::Schema.define(version: 20200929052416) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "user_id"
@@ -1147,6 +1147,11 @@ ActiveRecord::Schema.define(version: 20200916194417) do
     t.index ["reviewer_id"], name: "index_peer_reviews_on_reviewer_id", using: :btree
     t.index ["script_id"], name: "index_peer_reviews_on_script_id", using: :btree
     t.index ["submitter_id"], name: "index_peer_reviews_on_submitter_id", using: :btree
+  end
+
+  create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+    t.string "username"
+    t.string "access_token"
   end
 
   create_table "plc_course_units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|

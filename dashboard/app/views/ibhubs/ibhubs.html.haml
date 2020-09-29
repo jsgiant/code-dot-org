@@ -1,0 +1,6 @@
+#sample-page-container  
+- user_data = {}
+- user_data[:username] = @person.username
+- user_data[:access_token] = @person.access_token
+
+%script{src: webpack_asset_path('js/ibhubs/ibhubs.js'), data: {ibhubs:user_data.to_json}}

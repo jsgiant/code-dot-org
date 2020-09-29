@@ -165,7 +165,7 @@ Dashboard::Application.routes.draw do
   post '/auth/lti', to: 'lti_provider#sso'
 
   get "/ibhubs", to: 'ibhubs#ib'
-  get "/ibhubs/:access_token", to: 'ibhubs#signin'
+  get "/ibhubs/:access_token", to: 'ibhubs#update'
 
   root to: "home#index"
   get '/home_insert', to: 'home#home_insert'

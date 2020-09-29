@@ -5,10 +5,10 @@ import SamplePage from '@cdo/apps/templates/ibhubs/SamplePage';
 
 $(document).ready(function() {
   const script = document.querySelector('script[data-ibhubs]');
-  const data = script.dataset.ibhubs;
-  console.log(data);
+  const userData = JSON.parse(script.dataset.ibhubs);
+  const {username, access_token} = userData;
   ReactDOM.render(
-    <SamplePage accessToken={data} />,
+    <SamplePage username={username} accessToken={access_token} />,
     document.getElementById('sample-page-container')
   );
 });
